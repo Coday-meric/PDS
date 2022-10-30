@@ -1,0 +1,11 @@
+mat-dialog-content{
+  display: grid;
+}
+
+#int_sct {
+  grid-column: 1;
+}
+
+#int_date {
+  grid-column: 2;
+}

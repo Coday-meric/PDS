@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Bienvenu sur PDS </h1>
+<div mat-dialog-content>
+  <p>Entrez votre numéro enqueteur !</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Numéro Enqueteur</mat-label>
+    <input matInput type="number" placeholder="Numéro Enqueteur" [(ngModel)]="data.num_enq">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions >
+  <button id="submit" mat-raised-button color="primary" [disabled]="!data.num_enq" [mat-dialog-close]="data.num_enq" >Valider</button>
+</div>
+

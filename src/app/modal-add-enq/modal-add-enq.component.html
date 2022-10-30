@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Ajouter Enquete</h1>
+<div mat-dialog-content>
+  <p>Entrez le secteur de l'enquete !</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Secteur Enquete</mat-label>
+    <input matInput type="number" placeholder="Secteur Enquete" [(ngModel)]="data.sct_enq">
+  </mat-form-field>
+</div>
+
+<mat-dialog-actions align="center">
+  <button mat-button (click)="onNoClick()" >Annuler</button>
+  <button id="submit" mat-raised-button color="primary" [disabled]="!data.sct_enq" [mat-dialog-close]="data.sct_enq" >Valider</button>
+</mat-dialog-actions>

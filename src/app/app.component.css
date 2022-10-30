@@ -1,0 +1,65 @@
+#rdv{
+  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #424242;
+}
+
+#realise{
+  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #424242;
+}
+
+.head{
+  display: grid;
+}
+
+.text{
+  grid-column: 1;
+}
+
+.btn{
+  grid-column: 2;
+  text-align: right;
+}
+
+.card{
+  display: grid;
+  background-color: #686868;
+}
+
+.card_text{
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card_btn{
+  grid-column: 2;
+  text-align: right;
+}
+
+.all_card{
+  margin-top: 1%;
+
+}
+
+.text_btn{
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+#submit{
+  display: block;
+  margin : auto;
+  padding: 1%;
+}
+
