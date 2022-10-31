@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogData, DataService} from '../data.service'
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-modal-login',
@@ -9,7 +9,9 @@ import {DialogData, DataService} from '../data.service'
 })
 export class ModalLoginComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData,) { }
+  num_enq: number | undefined;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }

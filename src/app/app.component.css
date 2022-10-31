@@ -30,6 +30,7 @@
 .card{
   display: grid;
   background-color: #686868;
+  margin-bottom: 1%;
 }
 
 .card_text{
@@ -63,3 +64,12 @@
   padding: 1%;
 }
 
+#date{
+  text-transform : capitalize;
+}
+
+.index{
+  font-weight: bold;
+  font-size: large;
+  padding-right: 2%;
+}

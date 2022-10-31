@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogData} from "../data.service";
 
 @Component({
   selector: 'app-modal-add-enq',
@@ -9,7 +8,9 @@ import {DialogData} from "../data.service";
 })
 export class ModalAddEnqComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ModalAddEnqComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  sct_enq: number | undefined;
+
+  constructor(public dialogRef: MatDialogRef<ModalAddEnqComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }

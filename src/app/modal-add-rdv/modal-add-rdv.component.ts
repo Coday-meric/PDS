@@ -1,6 +1,10 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogData} from "../data.service";
+
+export interface RdvDataLoc {
+  sct_rdv: number;
+  date_rdv: string;
+}
 
 @Component({
   selector: 'app-modal-add-rdv',
@@ -9,7 +13,10 @@ import {DialogData} from "../data.service";
 })
 export class ModalAddRdvComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ModalAddRdvComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  sct_rdv: number | undefined;
+  date_rdv: string | undefined;
+
+  constructor(public dialogRef: MatDialogRef<ModalAddRdvComponent>, @Inject(MAT_DIALOG_DATA) public data: RdvDataLoc) { }
 
   ngOnInit(): void {
   }

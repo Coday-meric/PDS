@@ -1,19 +1,10 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <!-- Toolbar -->
 <p>
   <mat-toolbar color="primary">
     <mat-icon fontIcon="nightlight"></mat-icon>
     <span> Point Du Soir </span>
     <span class="spacer"></span>
-    <span> du Mardi 29 Novembre </span>
+    <span id="date"> du {{today | date:'fullDate' }} </span>
     <span class="spacer"></span>
     <span>Numéro Enqueteur : {{num_enq}}</span>
   </mat-toolbar>
@@ -40,21 +31,25 @@
     </div>
     <mat-divider></mat-divider>
     <mat-card-content class="all_card">
-      <mat-card class="card">
-        <div class="card_text">Enquete effectué secteur
-          <mat-chip-list aria-label="Secteur">
-            <mat-chip color="accent"> 119</mat-chip>
-          </mat-chip-list>
-        </div>
-        <div class="card_btn">
-          <button mat-raised-button color="warn">
-            <div class="text_btn">
-              <mat-icon fontIcon="remove_circle_outline"></mat-icon>
-              Supprimer
-            </div>
-          </button>
-        </div>
-      </mat-card>
+      <ng-container *ngFor="let enq of enqList ; let i = index">
+        <mat-card class="card">
+          <div class="card_text">
+            <div class="index">#{{i + 1}}</div>
+            Enquete effectué secteur
+            <mat-chip-list aria-label="Secteur">
+              <mat-chip color="accent"> {{enq.sct_enq}}</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="card_btn">
+            <button mat-raised-button color="warn" (click)="delEnq(i)">
+              <div class="text_btn">
+                <mat-icon fontIcon="remove_circle_outline"></mat-icon>
+                Supprimer
+              </div>
+            </button>
+          </div>
+        </mat-card>
+      </ng-container>
     </mat-card-content>
   </mat-card>
 
@@ -75,25 +70,29 @@
     </div>
     <mat-divider></mat-divider>
     <mat-card-content class="all_card">
-      <mat-card class="card">
-        <div class="card_text">RDV pris secteur
-          <mat-chip-list aria-label="Secteur">
-            <mat-chip color="accent">119</mat-chip>
-          </mat-chip-list>
-          le
-          <mat-chip-list aria-label="Date">
-            <mat-chip color="accent">28/10</mat-chip>
-          </mat-chip-list>
-        </div>
-        <div class="card_btn">
-          <button mat-raised-button color="warn">
-            <div class="text_btn">
-              <mat-icon fontIcon="remove_circle_outline"></mat-icon>
-              Supprimer
-            </div>
-          </button>
-        </div>
-      </mat-card>
+      <ng-container *ngFor="let rdv of rdvList ; let i = index">
+        <mat-card class="card">
+          <div class="card_text">
+            <div class="index">#{{i + 1}}</div>
+            RDV pris secteur
+            <mat-chip-list aria-label="Secteur">
+              <mat-chip color="accent">{{rdv.sct_rdv}}</mat-chip>
+            </mat-chip-list>
+            le
+            <mat-chip-list aria-label="Date">
+              <mat-chip color="accent">{{rdv.date_rdv}}</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="card_btn">
+            <button mat-raised-button color="warn" (click)="delRdv(i)">
+              <div class="text_btn">
+                <mat-icon fontIcon="remove_circle_outline"></mat-icon>
+                Supprimer
+              </div>
+            </button>
+          </div>
+        </mat-card>
+      </ng-container>
     </mat-card-content>
   </mat-card>
 
@@ -104,13 +103,4 @@
   </button>
 
 </div>
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
