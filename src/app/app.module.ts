@@ -1,7 +1,7 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatIconModule} from "@angular/material/icon";
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -21,7 +21,7 @@ import { ModalAddRdvComponent } from './modal-add-rdv/modal-add-rdv.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {DatePipe} from "@angular/common";
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr);
@@ -54,8 +54,10 @@ registerLocaleData(localeFr);
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpClientModule,
+
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }, DatePipe],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }, DatePipe, MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

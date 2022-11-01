@@ -1,7 +1,7 @@
 <!-- Toolbar -->
 <p>
   <mat-toolbar color="primary">
-    <mat-icon fontIcon="nightlight"></mat-icon>
+    <mat-icon class="icon" fontIcon="nightlight"></mat-icon>
     <span> Point Du Soir </span>
     <span class="spacer"></span>
     <span id="date"> du {{today | date:'fullDate' }} </span>
@@ -22,7 +22,7 @@
       <div class="btn">
         <button mat-raised-button color="primary" (click)="addEnq()">
           <div class="text_btn">
-            <mat-icon fontIcon="add_circle_outline"></mat-icon>
+            <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
             Ajouter
           </div>
         </button>
@@ -36,14 +36,14 @@
           <div class="card_text">
             <div class="index">#{{i + 1}}</div>
             Enquete effectué secteur
-            <mat-chip-list aria-label="Secteur">
-              <mat-chip color="accent"> {{enq.sct_enq}}</mat-chip>
+            <mat-chip-list aria-label="Secteur" class="chip">
+              <mat-chip color="accent"> {{enq.sct}}</mat-chip>
             </mat-chip-list>
           </div>
           <div class="card_btn">
-            <button mat-raised-button color="warn" (click)="delEnq(i)">
+            <button mat-raised-button color="warn" (click)="delEnq(enq._id, i)">
               <div class="text_btn">
-                <mat-icon fontIcon="remove_circle_outline"></mat-icon>
+                <mat-icon class="icon" fontIcon="remove_circle_outline"></mat-icon>
                 Supprimer
               </div>
             </button>
@@ -62,7 +62,7 @@
       <div class="btn">
         <button mat-raised-button color="primary" (click)="addRdv()">
           <div class="text_btn">
-            <mat-icon fontIcon="add_circle_outline"></mat-icon>
+            <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
             Ajouter
           </div>
         </button>
@@ -75,18 +75,18 @@
           <div class="card_text">
             <div class="index">#{{i + 1}}</div>
             RDV pris secteur
-            <mat-chip-list aria-label="Secteur">
-              <mat-chip color="accent">{{rdv.sct_rdv}}</mat-chip>
+            <mat-chip-list aria-label="Secteur" class="chip">
+              <mat-chip color="accent">{{rdv.sct}}</mat-chip>
             </mat-chip-list>
             le
-            <mat-chip-list aria-label="Date">
+            <mat-chip-list aria-label="Date" class="chip">
               <mat-chip color="accent">{{rdv.date_rdv}}</mat-chip>
             </mat-chip-list>
           </div>
           <div class="card_btn">
-            <button mat-raised-button color="warn" (click)="delRdv(i)">
+            <button mat-raised-button color="warn" (click)="delRdv(rdv._id, i)">
               <div class="text_btn">
-                <mat-icon fontIcon="remove_circle_outline"></mat-icon>
+                <mat-icon class="icon" fontIcon="remove_circle_outline"></mat-icon>
                 Supprimer
               </div>
             </button>
@@ -96,11 +96,14 @@
     </mat-card-content>
   </mat-card>
 
-  <button id="submit" mat-raised-button color="primary">
+  <!---
+  <button id="submit" mat-raised-button color="primary" (click)="sendData()">
     <div class="text_btn">Valider votre PDS, belle soirée
       <mat-icon fontIcon="nightlight"></mat-icon>
     </div>
   </button>
+  --->
 
 </div>
+<div class="footer">Developpé avec <mat-icon id="footer-icon" fontIcon="favorite"></mat-icon> par <a id="footer-href" href="https://github.com/Coday-meric">Coday-meric</a> </div>
 

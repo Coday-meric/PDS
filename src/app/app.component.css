@@ -4,6 +4,7 @@
   margin-left: 10%;
   margin-right: 10%;
   background: #424242;
+  bottom: 25px;
 }
 
 #realise{
@@ -72,4 +73,31 @@
   font-weight: bold;
   font-size: large;
   padding-right: 2%;
+}
+
+.icon{
+  padding-right: 6px;
+}
+
+.chip{
+  margin-right: 5px;
+  margin-left: 4px;
+}
+
+.footer{
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: x-small;
+}
+
+#footer-icon{
+  color: red;
+  transform: scale(0.7);
+  vertical-align:bottom;
+}
+
+#footer-href{
+  color: white;
 }

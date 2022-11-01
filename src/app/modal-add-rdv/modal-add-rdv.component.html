@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>Ajouter RDV</h1>
+<h1 id="title" mat-dialog-title>Ajouter RDV</h1>
 <mat-dialog-content>
-  <p>Entrez le secteur et la date du RDV !</p>
+  <p id="text">Entrez le secteur et la date du RDV !</p>
   <mat-form-field appearance="fill">
     <mat-label>Secteur RDV</mat-label>
-    <input matInput type="number" placeholder="Secteur RDV" [(ngModel)]="data.sct_rdv">
+    <input matInput maxlength="3" type="number" placeholder="Secteur RDV" [(ngModel)]="data.sct_rdv" #sct>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Choisir la date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="data.date_rdv">
+    <input matInput  [matDatepickerFilter]="myFilter" [min]="minDate" [matDatepicker]="picker" [(ngModel)]="data.date_rdv">
     <mat-hint>JJ/MM/AAAA</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -18,5 +18,5 @@
 
 <mat-dialog-actions align="center">
   <button mat-button (click)="onNoClick()" >Annuler</button>
-  <button mat-raised-button color="primary" [disabled]="!data.sct_rdv || !data.date_rdv" [mat-dialog-close]="data" >Valider</button>
+  <button mat-raised-button color="primary" [disabled]="!data.sct_rdv || !data.date_rdv || sct.value.length != 3" [mat-dialog-close]="data" >Valider</button>
 </mat-dialog-actions>

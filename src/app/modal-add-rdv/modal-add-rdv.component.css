@@ -2,10 +2,10 @@ mat-dialog-content{
   display: grid;
 }
 
-#int_sct {
-  grid-column: 1;
+#text{
+  text-align: center;
 }
 
-#int_date {
-  grid-column: 2;
+#title{
+  text-align: center;
 }
