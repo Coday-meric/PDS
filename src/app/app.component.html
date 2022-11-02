@@ -20,7 +20,8 @@
         <mat-card-subtitle>Clique sur le bouton pour ajouter une enquetes que tu as effectué.</mat-card-subtitle>
       </div>
       <div class="btn">
-        <button mat-raised-button color="primary" (click)="addEnq()">
+        <mat-slide-toggle class="ras-toggle" color="primary" [(ngModel)]="ras_enq" (ngModelChange)="rasEnq()">Rien A Signaler</mat-slide-toggle>
+        <button mat-raised-button color="primary" [disabled]="ras_enq" (click)="addEnq()">
           <div class="text_btn">
             <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
             Ajouter
@@ -30,8 +31,21 @@
       </div>
     </div>
     <mat-divider></mat-divider>
+
+    <!-- RAS container -->
+    <ng-template [ngIf]="ras_enq">
+    <mat-card-content class="all_card">
+        <mat-card class="card">
+          <div class="card_text">
+            Aucune enquete effectué aujourd'hui ! Courage demain et un autre jour <mat-icon class="icon-ras" fontIcon="sentiment_very_satisfied"></mat-icon>
+          </div>
+        </mat-card>
+    </mat-card-content>
+    </ng-template>
+    <!-- Enq container --->
     <mat-card-content class="all_card">
       <ng-container *ngFor="let enq of enqList ; let i = index">
+        <ng-template [ngIf]="!enq.ras">
         <mat-card class="card">
           <div class="card_text">
             <div class="index">#{{i + 1}}</div>
@@ -49,6 +63,7 @@
             </button>
           </div>
         </mat-card>
+        </ng-template>
       </ng-container>
     </mat-card-content>
   </mat-card>
@@ -60,7 +75,8 @@
         <mat-card-subtitle>Clique sur le bouton pour ajouter un RDV que tu as pris.</mat-card-subtitle>
       </div>
       <div class="btn">
-        <button mat-raised-button color="primary" (click)="addRdv()">
+        <mat-slide-toggle class="ras-toggle" color="primary" [(ngModel)]="ras_rdv" (ngModelChange)="rasRdv()">Rien A Signaler</mat-slide-toggle>
+        <button mat-raised-button color="primary" [disabled]="ras_rdv" (click)="addRdv()">
           <div class="text_btn">
             <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
             Ajouter
@@ -69,8 +85,20 @@
       </div>
     </div>
     <mat-divider></mat-divider>
+    <!-- RAS container -->
+    <ng-template [ngIf]="ras_rdv">
+      <mat-card-content class="all_card">
+        <mat-card class="card">
+          <div class="card_text">
+            Aucun rdv pris aujourd'hui ! Courage demain et un autre jour <mat-icon class="icon-ras" fontIcon="sentiment_very_satisfied"></mat-icon>
+          </div>
+        </mat-card>
+      </mat-card-content>
+    </ng-template>
+    <!-- RDV container -->
     <mat-card-content class="all_card">
       <ng-container *ngFor="let rdv of rdvList ; let i = index">
+        <ng-template [ngIf]="!rdv.ras">
         <mat-card class="card">
           <div class="card_text">
             <div class="index">#{{i + 1}}</div>
@@ -92,6 +120,7 @@
             </button>
           </div>
         </mat-card>
+        </ng-template>
       </ng-container>
     </mat-card-content>
   </mat-card>

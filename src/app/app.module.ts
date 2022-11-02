@@ -24,6 +24,8 @@ import {DatePipe} from "@angular/common";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { ModalConfirmRasComponent } from './modal-confirm-ras/modal-confirm-ras.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -31,32 +33,34 @@ registerLocaleData(localeFr);
     AppComponent,
     ModalLoginComponent,
     ModalAddEnqComponent,
-    ModalAddRdvComponent
+    ModalAddRdvComponent,
+    ModalConfirmRasComponent
   ],
-  imports: [
-    BrowserModule.withServerTransition({appId: 'serverApp'}),
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule.withServerTransition({appId: 'serverApp'}),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatDividerModule,
+        MatButtonModule,
+        MatChipsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        HttpClientModule,
+        MatSlideToggleModule,
 
-  ],
+    ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }, DatePipe, MatSnackBar],
   bootstrap: [AppComponent]
 })

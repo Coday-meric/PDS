@@ -1,0 +1,10 @@
+<h1 id="title" mat-dialog-title>Supprimer {{data.subject}} !</h1>
+<mat-dialog-content>
+  <p id="text">Vous avez deja {{data.nbr}} {{data.subject}}(s) confirmé(e) sur votre point d'aujourd'hui. Etes vous certain de
+    vouloir les supprimer et
+    passer votre point en RAS ?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" [mat-dialog-close]="false">Retour</button>
+  <button mat-button color="warn" [mat-dialog-close]="true">Je confirme</button>
+</mat-dialog-actions>
