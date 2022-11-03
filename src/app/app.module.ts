@@ -26,7 +26,16 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ModalConfirmRasComponent } from './modal-confirm-ras/modal-confirm-ras.component';
+import { AdminComponent } from './admin/admin.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FrontComponent } from './front/front.component';
 registerLocaleData(localeFr);
+
+const appRoutes: Routes = [
+  { path: '', component: FrontComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: '**', redirectTo: '' }
+  ];
 
 @NgModule({
   declarations: [
@@ -34,7 +43,9 @@ registerLocaleData(localeFr);
     ModalLoginComponent,
     ModalAddEnqComponent,
     ModalAddRdvComponent,
-    ModalConfirmRasComponent
+    ModalConfirmRasComponent,
+    AdminComponent,
+    FrontComponent
   ],
     imports: [
         BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -59,6 +70,7 @@ registerLocaleData(localeFr);
         MatNativeDateModule,
         HttpClientModule,
         MatSlideToggleModule,
+        RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: false})
 
     ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }, DatePipe, MatSnackBar],

@@ -1,0 +1,111 @@
+#rdv{
+  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #424242;
+  bottom: 25px;
+}
+
+#realise{
+  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #424242;
+}
+
+.head{
+  display: grid;
+}
+
+.text{
+  grid-column: 1;
+}
+
+.btn{
+  grid-column: 2;
+  text-align: right;
+}
+
+.card{
+  display: grid;
+  background-color: #686868;
+  margin-bottom: 1%;
+}
+
+.card_text{
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card_btn{
+  grid-column: 2;
+  text-align: right;
+}
+
+.all_card{
+  margin-top: 1%;
+
+}
+
+.text_btn{
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+#submit{
+  display: block;
+  margin : auto;
+  padding: 1%;
+}
+
+#date{
+  text-transform : capitalize;
+}
+
+.index{
+  font-weight: bold;
+  font-size: large;
+  padding-right: 2%;
+}
+
+.icon{
+  padding-right: 6px;
+}
+
+.chip{
+  margin-right: 5px;
+  margin-left: 4px;
+}
+
+.footer{
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: x-small;
+}
+
+#footer-icon{
+  color: red;
+  transform: scale(0.7);
+  vertical-align:bottom;
+}
+
+#footer-href{
+  color: white;
+}
+
+.ras-toggle{
+  padding-right: 50px;
+}
+
+.icon-ras{
+  margin-left: 5px;
+}

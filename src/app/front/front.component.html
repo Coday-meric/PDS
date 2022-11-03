@@ -1,0 +1,137 @@
+<!-- Toolbar -->
+<p>
+  <mat-toolbar color="primary">
+    <mat-icon class="icon" fontIcon="nightlight"></mat-icon>
+    <span> Point Du Soir </span>
+    <span class="spacer"></span>
+    <span id="date"> du {{today | date:'fullDate' }} </span>
+    <span class="spacer"></span>
+    <span>Numéro Enqueteur : {{num_enq}}</span>
+  </mat-toolbar>
+</p>
+
+<div class="content" role="main">
+
+  <!-- Resources -->
+  <mat-card id="realise">
+    <div class="head">
+      <div class="text">
+        <mat-card-title>Mes Enquetes Réalisées :</mat-card-title>
+        <mat-card-subtitle>Clique sur le bouton pour ajouter une enquetes que tu as effectué.</mat-card-subtitle>
+      </div>
+      <div class="btn">
+        <mat-slide-toggle class="ras-toggle" color="primary" [(ngModel)]="ras_enq" (ngModelChange)="rasEnq()">Rien A Signaler</mat-slide-toggle>
+        <button mat-raised-button color="primary" [disabled]="ras_enq" (click)="addEnq()">
+          <div class="text_btn">
+            <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
+            Ajouter
+          </div>
+        </button>
+
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!-- RAS container -->
+    <ng-template [ngIf]="ras_enq">
+      <mat-card-content class="all_card">
+        <mat-card class="card">
+          <div class="card_text">
+            Aucune enquete effectué aujourd'hui ! Courage demain et un autre jour <mat-icon class="icon-ras" fontIcon="sentiment_very_satisfied"></mat-icon>
+          </div>
+        </mat-card>
+      </mat-card-content>
+    </ng-template>
+    <!-- Enq container --->
+    <mat-card-content class="all_card">
+      <ng-container *ngFor="let enq of enqList ; let i = index">
+        <ng-template [ngIf]="!enq.ras">
+          <mat-card class="card">
+            <div class="card_text">
+              <div class="index">#{{i + 1}}</div>
+              Enquete effectué secteur
+              <mat-chip-list aria-label="Secteur" class="chip">
+                <mat-chip color="accent"> {{enq.sct}}</mat-chip>
+              </mat-chip-list>
+            </div>
+            <div class="card_btn">
+              <button mat-raised-button color="warn" (click)="delEnq(enq._id, i)">
+                <div class="text_btn">
+                  <mat-icon class="icon" fontIcon="remove_circle_outline"></mat-icon>
+                  Supprimer
+                </div>
+              </button>
+            </div>
+          </mat-card>
+        </ng-template>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card id="rdv">
+    <div class="head">
+      <div class="text">
+        <mat-card-title>Mes RDV Pris :</mat-card-title>
+        <mat-card-subtitle>Clique sur le bouton pour ajouter un RDV que tu as pris.</mat-card-subtitle>
+      </div>
+      <div class="btn">
+        <mat-slide-toggle class="ras-toggle" color="primary" [(ngModel)]="ras_rdv" (ngModelChange)="rasRdv()">Rien A Signaler</mat-slide-toggle>
+        <button mat-raised-button color="primary" [disabled]="ras_rdv" (click)="addRdv()">
+          <div class="text_btn">
+            <mat-icon class="icon" fontIcon="add_circle_outline"></mat-icon>
+            Ajouter
+          </div>
+        </button>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- RAS container -->
+    <ng-template [ngIf]="ras_rdv">
+      <mat-card-content class="all_card">
+        <mat-card class="card">
+          <div class="card_text">
+            Aucun rdv pris aujourd'hui ! Courage demain et un autre jour <mat-icon class="icon-ras" fontIcon="sentiment_very_satisfied"></mat-icon>
+          </div>
+        </mat-card>
+      </mat-card-content>
+    </ng-template>
+    <!-- RDV container -->
+    <mat-card-content class="all_card">
+      <ng-container *ngFor="let rdv of rdvList ; let i = index">
+        <ng-template [ngIf]="!rdv.ras">
+          <mat-card class="card">
+            <div class="card_text">
+              <div class="index">#{{i + 1}}</div>
+              RDV pris secteur
+              <mat-chip-list aria-label="Secteur" class="chip">
+                <mat-chip color="accent">{{rdv.sct}}</mat-chip>
+              </mat-chip-list>
+              le
+              <mat-chip-list aria-label="Date" class="chip">
+                <mat-chip color="accent">{{rdv.date_rdv}}</mat-chip>
+              </mat-chip-list>
+            </div>
+            <div class="card_btn">
+              <button mat-raised-button color="warn" (click)="delRdv(rdv._id, i)">
+                <div class="text_btn">
+                  <mat-icon class="icon" fontIcon="remove_circle_outline"></mat-icon>
+                  Supprimer
+                </div>
+              </button>
+            </div>
+          </mat-card>
+        </ng-template>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+
+  <!---
+  <button id="submit" mat-raised-button color="primary" (click)="sendData()">
+    <div class="text_btn">Valider votre PDS, belle soirée
+      <mat-icon fontIcon="nightlight"></mat-icon>
+    </div>
+  </button>
+  --->
+
+</div>
+

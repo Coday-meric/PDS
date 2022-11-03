@@ -43,6 +43,10 @@ export class DataService {
     return this._httpClient.get<EnqData[]>(this._enqUrl + '/' + this.date_pds + '/' + num_enq)
   }
 
+  getAllEnq(){
+    return this._httpClient.get<EnqData[]>(this._addEnqUrl)
+  }
+
   getRdv(num_enq: number) {
     return this._httpClient.get<RdvData[]>(this._rdvUrl + '/' + this.date_pds + '/' + num_enq)
   }
