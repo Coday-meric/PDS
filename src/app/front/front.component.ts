@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService, EnqData, RdvData} from "../data.service";
+import {DataService, EnqData, RdvData, RdvDataLocal, EnqDataLocal} from "../data.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
@@ -21,8 +21,8 @@ export class FrontComponent implements OnInit {
   ras_enq: boolean;
   ras_rdv: boolean;
 
-  enqList: Array<EnqData> = [];
-  rdvList: Array<RdvData> = [];
+  enqList: Array<EnqDataLocal> = [];
+  rdvList: Array<RdvDataLocal> = [];
 
   enqListTemp: any;
   rdvListTemp: any;

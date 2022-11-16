@@ -37,6 +37,7 @@ const appRoutes: Routes = [
   { path: '**', redirectTo: '' }
   ];
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,

@@ -9,7 +9,26 @@
 <div class="content" role="main">
 
   <!-- Resources -->
-  <mat-card id="realise">
+  <mat-card class="card">
+    <div class="head">
+      <div class="text">
+        <mat-card-title>Statistique :</mat-card-title>
+        <mat-card-subtitle>Retrouver ici les statistiques de la semaine.</mat-card-subtitle>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <br>
+
+      Enquete du Jour: {{nbrEnqD}}
+      <br>
+      Enquete de la semaine: {{nbrEnqW}}
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
     <div class="head">
       <div class="text">
         <mat-card-title>Extraction Point Du Soir :</mat-card-title>
@@ -19,18 +38,11 @@
     <mat-divider></mat-divider>
 
     <mat-card-content>
+      <br>
 
-      Point Du Soir par jour:
-      <mat-form-field appearance="fill">
-        <mat-label>Choisir la date</mat-label>
-        <input matInput  [matDatepickerFilter]="myFilter" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="extract_date">
-        <mat-hint>JJ/MM/AAAA</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="!extract_date" (click)="extract(extract_date)"><mat-icon class="icon" fontIcon="file_download"></mat-icon>Telecharger</button>
+      Extraire le Point Du Soir de la semaine {{W}} :
+      <button mat-raised-button color="primary" (click)="extract(W)"><mat-icon class="icon" fontIcon="file_download"></mat-icon>Telecharger</button>
 
     </mat-card-content>
   </mat-card>
-
 </div>

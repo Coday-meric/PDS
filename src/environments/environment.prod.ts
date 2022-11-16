@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:3000',
+  apiURL: 'https://pds.coday.fr:25565',
 };
