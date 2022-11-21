@@ -71,7 +71,7 @@ const appRoutes: Routes = [
         MatNativeDateModule,
         HttpClientModule,
         MatSlideToggleModule,
-        RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: false})
+        RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: false})
 
     ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }, DatePipe, MatSnackBar],
