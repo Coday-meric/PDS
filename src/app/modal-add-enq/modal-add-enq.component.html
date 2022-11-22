@@ -16,5 +16,5 @@
 
 <mat-dialog-actions align="center">
   <button mat-button (click)="onNoClick()" >Annuler</button>
-  <button id="submit" mat-raised-button color="primary" [disabled]="!data.sct_enq || !data.nbr_enq || data.nbr_enq == 0 || sct.value.length != 3" [mat-dialog-close]="data" >Valider</button>
+  <button id="submit" mat-raised-button color="primary" [disabled]="!data.sct_enq || !data.nbr_enq || data.nbr_enq == 0 || sct.value.length != 3 || enq.value.length != 1" [mat-dialog-close]="data" >Valider</button>
 </mat-dialog-actions>
