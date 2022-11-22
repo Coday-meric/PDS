@@ -73,24 +73,26 @@ export class FrontComponent implements OnInit {
 
   addEnq() {
     const dialogRef = this.dialog.open(ModalAddEnqComponent, {
-      width: '250px',
+      width: '300px',
       data: {num_enq: this.num_enq},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (!!result) {
-        this.dataSrv.postEnq(this.num_enq, result).subscribe({
-          next: data => {
-            this.enqListTemp = data;
-            let enqId = this.enqListTemp._id
-            this.enqList.push({_id: enqId, num_enq: this.num_enq, sct: result, ras: false});
-            this.sucessSnack("Enquete ajouté avec succée !")
-
-          },
-          error: error => {
-            this.errorSnack(error);
-          }
-        });
+        console.log(result)
+        for(let i = 0 ; i < result.nbr_enq!; i++){
+          this.dataSrv.postEnq(this.num_enq, result.sct_enq).subscribe({
+            next: data => {
+              this.enqListTemp = data;
+              let enqId = this.enqListTemp._id
+              this.enqList.push({_id: enqId, num_enq: this.num_enq, sct: result.sct_enq, ras: false});
+              this.sucessSnack("Enquete ajouté avec succée !")
+            },
+            error: error => {
+              this.errorSnack(error);
+            }
+          });
+        }
       }
     });
   }
